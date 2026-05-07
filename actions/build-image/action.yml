@@ -112,7 +112,7 @@ runs:
     - name: Verify cache image ${{ inputs.image }}:${{ inputs.cache-image-tag }}
       if: inputs.cosign == 'true'
       id: verify_cache
-      uses: siksil/builder/actions/cosign-verify@9d07893 # 2026.03.2
+      uses: siksil/builder/actions/cosign-verify@e20b10faa2ba4804d875c003738693f4e90e0ff6 # 2026.03.2
       with:
         image: ${{ inputs.image }}:${{ inputs.cache-image-tag }}
         cosign-identity: ${{ inputs.cosign-identity || env.DEFAULT_COSIGN_IDENTITY }}
@@ -123,7 +123,7 @@ runs:
 
     - name: Verify base image
       if: inputs.push == 'true' && inputs.cosign-base-verify != '' && inputs.cosign-base-identity != ''
-      uses: siksil/builder/actions/cosign-verify@9d07893 # 2026.03.2
+      uses: siksil/builder/actions/cosign-verify@e20b10faa2ba4804d875c003738693f4e90e0ff6 # 2026.03.2
       with:
         image: ${{ inputs.cosign-base-verify }}
         cosign-identity: ${{ inputs.cosign-base-identity }}
